@@ -12,9 +12,9 @@ PRODUCT_COPY_FILES += \
 	#device/softwinner/sugar-cubieboard2/modules/modules/hdmi.ko:root/hdmi.ko \
 
 PRODUCT_COPY_FILES += \
-	device/softwinner/sugar-cubieboard2/kernel:kernel \
-	device/softwinner/sugar-cubieboard2/recovery.fstab:recovery.fstab \
-	frameworks/base/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
+#	device/softwinner/sugar-cubieboard2/kernel:kernel \
+	device/softwinner/sugar-cubieboard2/recovery.fstab:recovery.fstab
+#	frameworks/base/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
 
 PRODUCT_COPY_FILES += \
 	device/softwinner/sugar-cubieboard2/ueventd.sun7i.rc:root/ueventd.sun7i.rc \
@@ -28,8 +28,8 @@ PRODUCT_COPY_FILES += \
 	device/softwinner/sugar-cubieboard2/init/init.sde.rc:root/init.sde.rc \
 	device/softwinner/sugar-cubieboard2/needfix.rle:root/needfix.rle \
 	device/softwinner/sugar-cubieboard2/camera.cfg:system/etc/camera.cfg \
-	device/softwinner/sugar-cubieboard2/media_profiles.xml:system/etc/media_profiles.xml \
-	frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml
+	device/softwinner/sugar-cubieboard2/media_profiles.xml:system/etc/media_profiles.xml
+#	frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml
 
 #input device config
 PRODUCT_COPY_FILES += \
@@ -44,6 +44,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/softwinner/sugar-cubieboard2/vold.fstab:system/etc/vold.fstab
 	
+#PRODUCT_PACKAGES += \
+#	TvdLauncher \
+#	TSCalibration2
 
 # wifi & bt config file
 PRODUCT_COPY_FILES += \
@@ -72,7 +75,7 @@ PRODUCT_COPY_FILES += \
 #	hardware/broadcom/wlan/firmware/bcm40183/bcm40183_nvram.txt:system/vendor/modules/bcm40183_nvram.txt
 
 # ap6210 sdio wifi fw and nvram
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
 	hardware/broadcom/wlan/firmware/ap6210/fw_bcm40181a2.bin:system/vendor/modules/fw_bcm40181a2.bin \
 	hardware/broadcom/wlan/firmware/ap6210/fw_bcm40181a2_apsta.bin:system/vendor/modules/fw_bcm40181a2_apsta.bin \
 	hardware/broadcom/wlan/firmware/ap6210/fw_bcm40181a2_p2p.bin:system/vendor/modules/fw_bcm40181a2_p2p.bin \
@@ -89,33 +92,34 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mass_storage,adb \
 	ro.property.tabletUI=true \
 	ro.udisk.lable=sugar \
-	ro.product.firmware=v3.0 \
+	ro.product.firmware=v2.0rc4 \
 	ro.sw.defaultlauncherpackage=com.softwinner.launcher \
 	ro.sw.defaultlauncherclass=com.softwinner.launcher.Launcher \
-	audio.output.active=AUDIO_CODEC \
+	audio.output.active=AUDIO_HDMI \
 	audio.input.active=AUDIO_CODEC \
 	ro.audio.multi.output=true \
 	ro.sw.directlypoweroff=true \
-	ro.softmouse.left.code=71 \
-    ro.softmouse.right.code=21 \
-    ro.softmouse.top.code=70 \
-    ro.softmouse.bottom.code=22 \
+	ro.softmouse.left.code=6 \
+    ro.softmouse.right.code=14 \
+    ro.softmouse.top.code=67 \
+    ro.softmouse.bottom.code=10 \
     ro.softmouse.leftbtn.code=2 \
     ro.softmouse.midbtn.code=-1 \
     ro.softmouse.rightbtn.code=-1 \
     ro.sw.shortpressleadshut=false \
     ro.sw.videotrimming=1 \
     ro.sw.usedHardwareMouse=false\
+    persist.sys.ui.hw=true \
     persist.sys.device_name = MiniMax \
     sys.mdnsd.enable=true
 
-$(call inherit-product-if-exists, device/softwinner/sugar-cubieboard2/modules/modules.mk)
+#$(call inherit-product-if-exists, device/softwinner/sugar-cubieboard2/modules/modules.mk)
 
-PRODUCT_CHARACTERISTICS := manu
+PRODUCT_CHARACTERISTICS := tablet
 
 # Overrides
-PRODUCT_BRAND  := cubieboard
+PRODUCT_BRAND  := softwinners
 PRODUCT_NAME   := sugar_cubieboard2
 PRODUCT_DEVICE := sugar-cubieboard2
-PRODUCT_MODEL  := softcubie
+PRODUCT_MODEL  := SoftwinerEvb
 

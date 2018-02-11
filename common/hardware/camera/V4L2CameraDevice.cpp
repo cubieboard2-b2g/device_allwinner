@@ -709,51 +709,10 @@ bool V4L2CameraDevice::captureThread()
 					  mFrameWidth, 
 					  mFrameHeight);
 #else
-    
-    #ifdef  __SUN7I__
-        if ((mVideoFormat == V4L2_PIX_FMT_NV21) || (mVideoFormat == V4L2_PIX_FMT_NV12))
-        {
-               YUYVToNV12(mMapMem.mem[buf.index], 
-                                          (void*)mVideoBuffer.buf_vir_addr[buf.index], 
-                                          mFrameWidth, 
-                                          mFrameHeight);
-            mVideoFormat == V4L2_PIX_FMT_NV12;
-        }
-        else
-        {
-            YUYVToNV21(mMapMem.mem[buf.index], 
-                                          (void*)mVideoBuffer.buf_vir_addr[buf.index], 
-                                          mFrameWidth, 
-                                          mFrameHeight);
-            mVideoFormat == V4L2_PIX_FMT_NV21;
-        }
-    #else
-        YUYVToNV21(mMapMem.mem[buf.index], 
-                                          (void*)mVideoBuffer.buf_vir_addr[buf.index], 
-                                          mFrameWidth, 
-                                          mFrameHeight);
-        mVideoFormat == V4L2_PIX_FMT_NV21;
- #endif
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		YUYVToNV21(mMapMem.mem[buf.index], 
+					   (void*)mVideoBuffer.buf_vir_addr[buf.index], 
+					   mFrameWidth, 
+					   mFrameHeight);
 #endif
 	}
 
@@ -843,20 +802,7 @@ bool V4L2CameraDevice::captureThread()
 		mIsPicCopy = true;
 		mCaptureThreadState = CAPTURE_STATE_PAUSED;
 		mTakePictureState = TAKE_PICTURE_NULL;
-	          if (mCaptureFormat == V4L2_PIX_FMT_YUYV)
-               {
-                       mTakingPictureFrame ++;
-                       if(mTakingPictureFrame == 5)   //add for taking picture black by fuqiang
-                       {
-                               pthread_cond_signal(&mPictureCond);
-                       }
-               }
-               else
-               {
-                       pthread_cond_signal(&mPictureCond);
-               }
-               
-               //pthread_cond_signal(&mPictureCond);
+		pthread_cond_signal(&mPictureCond);
 		
 		goto DEC_REF;
 	}

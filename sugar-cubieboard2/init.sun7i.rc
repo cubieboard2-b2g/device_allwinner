@@ -93,14 +93,6 @@ on post-fs-data
     #insmod /system/vendor/modules/mcs7830.ko
     insmod /system/vendor/modules/rtl8150.ko
 
-#usb lcd
-    insmod /system/vendor/modules/fb_sys_fops.ko
-    insmod /system/vendor/modules/sysimgblt.ko
-    insmod /system/vendor/modules/sysfillrect.ko
-    insmod /system/vendor/modules/syscopyarea.ko
-    insmod /system/vendor/modules/rp_usbdisplay.ko
-
-
 #add by jszeng : 2013.3.22
 #make adb work through the network transport
 #setprop service.adb.tcp.port 5555

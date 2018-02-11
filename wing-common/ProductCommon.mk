@@ -54,15 +54,15 @@ PRODUCT_PACKAGES += \
 	libext2_e2p \
 	make_ext4fs
 
-# PRODUCT_PACKAGES += \
-# 	LiveWallpapersPicker \
-# 	LiveWallpapers \
-# 	android.software.live_wallpaper.xml \
-# 	TvdSettings \
-# 	TvdFileManager \
-# 	TvdVideo \
-# 	LatinIME \
-# 	SettingsAssist
+PRODUCT_PACKAGES += \
+	LiveWallpapersPicker \
+	LiveWallpapers \
+	android.software.live_wallpaper.xml \
+	TvdSettings \
+	TvdFileManager \
+	TvdVideo \
+	LatinIME \
+	SettingsAssist
 
 # keylayout
 PRODUCT_COPY_FILES += \
@@ -97,7 +97,7 @@ PRODUCT_COPY_FILES += \
         device/softwinner/wing-common/CedarX-Crack/libswa2.so:system/lib/libswa2.so
 
 #premission feature
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     device/softwinner/wing-common/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
@@ -109,10 +109,10 @@ PRODUCT_COPY_FILES += \
 #    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml
 
 # for sop
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     device/softwinner/wing-common/sop.sh:/system/bin/sop.sh
 
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
 	device/softwinner/wing-common/media_codecs.xml:system/etc/media_codecs.xml \
 	device/softwinner/wing-common/preinstall.sh:/system/bin/preinstall.sh \
 	device/softwinner/wing-common/sensors.sh:/system/bin/sensors.sh \
@@ -148,12 +148,12 @@ PRODUCT_PACKAGES += \
     libdrmdecrypt	
 	
 # pre-installed apks
-# PRODUCT_COPY_FILES += \
-# 	$(call find-copy-subdir-files,*.apk,$(LOCAL_PATH)/preinstallapk,system/preinstall) \
-# 	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/apk,system/app) \
-# 	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/apklib,system/lib) \
-# 	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/apkdata/txt2epub,system/txt2epub) \
-#   $(call find-copy-subdir-files,*,$(LOCAL_PATH)/googleservice/gapps-jb-20130301-signed/system,system) \
+#PRODUCT_COPY_FILES += \
+	$(call find-copy-subdir-files,*.apk,$(LOCAL_PATH)/preinstallapk,system/preinstall) \
+	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/apk,system/app) \
+	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/apklib,system/lib) \
+	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/apkdata/txt2epub,system/txt2epub) \
+  $(call find-copy-subdir-files,*,$(LOCAL_PATH)/googleservice/gapps-jb-20130301-signed/system,system) \
 
 # Overrides
 PRODUCT_BRAND  := softwinners
@@ -170,19 +170,19 @@ PRODUCT_COPY_FILES += \
 	external/ppp/pppoe/script/pppoe-disconnect:system/bin/pppoe-disconnect
 
 #securefile
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     securefileserver \
     libsecurefileservice \
 	libsecurefile_jni
 
 #isomount
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
 	isomountmanagerservice \
 	libisomountmanager_jni \
 	libisomountmanagerservice
 
 #gpio
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
 	gpioservice \
 	libgpio_jni \
 	libgpioservice \
@@ -192,6 +192,14 @@ PRODUCT_PACKAGES += \
 	libsystemmixservice
 
 #FireAir 2.0
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
+    libupdatesoftwinner.so \
+    updatesoftwinner \
+    libsoftwinner_servers.so \
+    libjni_fireair.so \
     librtsp.so \
-    android.softwinner.framework.xml 
+    android.softwinner.framework.jar \
+    android.softwinner.framework.xml \
+    SoftWinnerService.apk \
+    FireairReceiver.apk \
+    

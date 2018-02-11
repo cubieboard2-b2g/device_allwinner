@@ -8,7 +8,6 @@
 import /init.usb.rc
 import /init.${ro.hardware}.rc
 import /init.b2g.rc
-
 on early-init
     # Set init and its forked children's oom_adj.
     write /proc/1/oom_adj -16
@@ -36,7 +35,7 @@ loglevel 6
     export BOOTCLASSPATH /system/framework/core.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/telephony-common.jar:/system/framework/mms-common.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar
 
 # Backward compatibility
-      insmod  /nand.ko 
+    insmod  /nand.ko 
     symlink /system/etc /etc
     symlink /sys/kernel/debug /d
     
@@ -204,9 +203,6 @@ on post-fs-data
     chmod 0751 /system/etc/ppp/call-pppd
     chmod 0751 /system/etc/ppp/ip-up
     chmod 0751 /system/etc/ppp/ip-down
-    chmod 0755 /system/b2g/b2g
-    chmod 0755 /system/b2g/updater
-    chmod 0755 /system/b2g/plugin-container
     chown radio system /system/bin/usb_modeswitch.sh
     chown radio system /system/etc/ppp/call-pppd
     chown radio system /system/etc/ppp/ip-up
@@ -408,14 +404,14 @@ service adbd /sbin/adbd
 on property:ro.kernel.qemu=1
     start adbd
 
-service  sensors  /system/bin/busybox  sh  /system/bin/sensors.sh
-        user root
-        group root
-        disabled
-        oneshot
+#service  sensors  /system/bin/busybox  sh  /system/bin/sensors.sh
+#        user root
+#        group root
+#        disabled
+#        oneshot
 
-on property:sys.sensors=1
-    start sensors
+#on property:sys.sensors=1
+#    start sensors
     
 service servicemanager /system/bin/servicemanager
     class core
